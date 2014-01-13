@@ -5,13 +5,26 @@
  */
 package org.benary.Labs.Lab_05;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 /**
  *
  * @author benaryorg
  */
 public class BarPlot
 {
-
+    public BarPlot() throws IOException
+    {
+        String str;
+        BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
+        while((str=reader.readLine())!=null)
+        {
+            //TODO: Something
+        }
+    }
+    
     public static String repeat(char c,int n)
     {
         StringBuilder sb=new StringBuilder();
