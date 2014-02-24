@@ -25,6 +25,12 @@ public class BarPlot
         }
     }
     
+    /**
+     * Liefert einen
+     * @param c
+     * @param n
+     * @return 
+     */
     public static String repeat(char c,int n)
     {
         StringBuilder sb=new StringBuilder();
