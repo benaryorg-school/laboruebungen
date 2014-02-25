@@ -51,18 +51,18 @@ public class Ingredient
 	{
 		this.name=name;
 	}
-	
+
 	public int power()
 	{
 		return this.name.length();
 	}
-	
+
 	@Override
 	public String toString()
 	{
 		return this.name;
 	}
-	
+
 	public static void main(String[] args)
 	{
 		Ingredient i=new Ingredient("Spider");
