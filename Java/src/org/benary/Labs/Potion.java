@@ -31,6 +31,7 @@ public class Potion
 {
 
 	protected Ingredient[] ings=new Ingredient[3];
+	protected int stired=0;
 
 	public Potion()
 	{
@@ -58,7 +59,6 @@ public class Potion
 	{
 		this.ings=ings;
 	}
-	protected int stired=0;
 
 	public Ingredient[] getIngs()
 	{
