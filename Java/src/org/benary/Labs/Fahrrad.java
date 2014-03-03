@@ -37,7 +37,7 @@ public class Fahrrad
 
 	public Fahrrad()
 	{
-		this("nobody");
+		this("N.N.");
 	}
 
 	public Fahrrad(String fahrer)
