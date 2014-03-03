@@ -21,7 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-
 package org.benary.Labs;
 
 /**
@@ -30,29 +29,105 @@ package org.benary.Labs;
  */
 public class Person
 {
-	protected String name;
-	protected String forename;
+
+	protected String zuname;
+	protected String vorname;
 	protected int geb;
-	
+
+	public static boolean gleichAlt(Person p1,Person p2)
+	{
+		return p1.geb==p2.geb;
+	}
+
 	public Person()
 	{
-		this("N.N.");
+		this(1970);
 	}
-	
-	public Person(String name)
+
+	public Person(int geb)
 	{
-		this(name,"N.N.");
+		this("N.N.",geb);
 	}
-	
-	public Person(String name,String forename)
+
+	public Person(String name,int geb)
 	{
-		this(name,forename,1970);
+		this(name,"N.N.",geb);
 	}
-	
-	public Person(String name,String forename,int geb)
+
+	public Person(String name,String vorname,int geb)
 	{
-		this.name=name;
-		this.forename=forename;
+		this.setZuname(name);
+		this.setVorname(vorname);
 		this.setGeb(geb);
+	}
+
+	public final void setZuname(String zuname)
+	{
+		this.zuname=zuname;
+	}
+
+	public final void setVorname(String vorname)
+	{
+		this.vorname=vorname;
+	}
+
+	public final void setGeb(int geb)
+	{
+		if(geb>=1900&&geb<=java.util.Calendar.getInstance().get(java.util.Calendar.YEAR))
+		{
+			this.geb=geb;
+		}
+
+	}
+
+	public String getZuname()
+	{
+		return zuname;
+	}
+
+	public String getVorname()
+	{
+		return vorname;
+	}
+
+	public int getGeb()
+	{
+		return geb;
+	}
+
+	public boolean gleichAlt(Person p)
+	{
+		return Person.gleichAlt(this,p);
+	}
+
+	public int getAlter()
+	{
+		return java.util.Calendar.getInstance().get(java.util.Calendar.YEAR)-this.geb;
+	}
+
+	@Override
+	public String toString()
+	{
+		return this.zuname+" "+this.vorname;
+	}
+
+	public static void main(String[] args)
+	{
+		Person p=new Person();
+		Person p1=new Person(1978);
+		Person p2=new Person("Maier",1967);
+		Person p3=new Person("Schmidt","Franz",1967);
+		p1.setZuname("Bauer");
+		p1.setVorname("Hans");
+		p2.setVorname("Eva");
+		System.out.println(p1+" ist "+p1.getAlter()+" Jahre alt.");
+		if(p2.gleichAlt(p3))
+		{
+			System.out.println(p2+" und "+p3+" sind gleich alt.");
+		}
+		if(Person.gleichAlt(p2,p3))
+		{
+			System.out.println(p2+" und "+p3+" sind gleich alt.");
+		}
 	}
 }
