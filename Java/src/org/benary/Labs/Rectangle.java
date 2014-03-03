@@ -78,4 +78,10 @@ public class Rectangle
 	{
 		return this.length*this.width;
 	}
+	
+	@Override
+	public String toString()
+	{
+		return this.width+";"+this.length;
+	}
 }
