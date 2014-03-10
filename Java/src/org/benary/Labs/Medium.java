@@ -23,11 +23,13 @@
  */
 package org.benary.Labs;
 
+import java.util.Arrays;
+
 /**
  *
  * @author benaryorg
  */
-public abstract class Medium
+public abstract class Medium implements Comparable
 {
 
 	private String bezeichnung;
@@ -64,8 +66,14 @@ public abstract class Medium
 
 	public abstract void info();
 
-	public int compareTo(Medium o)
+	@Override
+	public int compareTo(Object obj)
 	{
+		if(!(obj instanceof Medium))
+		{
+			return 1;
+		}
+		Medium o=(Medium)obj;
 		int x=(int)Math.ceil(this.getPreis()-o.getPreis());
 		if(x==0)
 		{
@@ -76,9 +84,18 @@ public abstract class Medium
 
 	public static void main(String[] args)
 	{
-		Medium m1=new AudioCD("test",25);
-		Medium m2=new AudioCD("Test",25);
-		System.out.println(m1.compareTo(m2));
+		Medium ms[]=
+		{
+			new Buch("Java ist auch eine Insel",55555555,2),
+			new Buch("Python ist besser",25,499),
+			new AudioCD("Java ist keine Insel",55555555,2),
+			new AudioCD("Python ist besser",26,40)
+		};
+		Arrays.sort(ms);
+		for(Medium m:ms)
+		{
+			m.info();
+		}
 	}
 }
 
@@ -125,7 +142,65 @@ class AudioCD extends Medium
 	public void info()
 	{
 		System.out.println("AudioCD: \t"+this.getBezeichnung());
-		System.out.println("Preis: \t"+this.getPreis());
+		System.out.println("Preis: \t\t"+this.getPreis());
 		System.out.println("Spielzeit: \t"+this.getLaufzeit());
+	}
+}
+
+class Buch extends Medium
+{
+
+	private int seiten;
+
+	public int getSeiten()
+	{
+		return seiten;
+	}
+
+	public void setSeiten(int seiten)
+	{
+		this.seiten=seiten;
+	}
+
+	public double getLaufzeit()
+	{
+		return seiten;
+	}
+
+	public final void setLaufzeit(int seiten)
+	{
+		if(seiten>0)
+		{
+			this.seiten=seiten;
+		}
+	}
+
+	public Buch()
+	{
+		this("");
+	}
+
+	public Buch(String bezeichnung)
+	{
+		this(bezeichnung,5);
+	}
+
+	public Buch(String bezeichnung,double preis)
+	{
+		this(bezeichnung,preis,5);
+	}
+
+	public Buch(String bezeichnung,double preis,int seiten)
+	{
+		super(bezeichnung,preis);
+		this.setSeiten(seiten);
+	}
+
+	@Override
+	public void info()
+	{
+		System.out.println("AudioCD: \t"+this.getBezeichnung());
+		System.out.println("Preis: \t\t"+this.getPreis());
+		System.out.println("Seiten: \t"+this.getSeiten());
 	}
 }
