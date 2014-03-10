@@ -35,10 +35,18 @@ public abstract class Shape2D
 	abstract double flaeche();
 
 	abstract void info();
-	
-	public void main(String[] args)
+
+	public static void main(String[] args)
 	{
-		
+		Shape2D f[]=new Shape2D[10];
+		for(int i=0;i<f.length;i++)
+		{
+			f[i]=Math.random()>0.5?new Kreis(Math.random()*10):new Quadrat(Math.random()*10);
+		}
+		for(Shape2D s:f)
+		{
+			s.info();
+		}
 	}
 }
 
