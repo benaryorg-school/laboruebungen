@@ -17,7 +17,7 @@
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * LIABILITY, WHETHER IN ANmain ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
@@ -38,15 +38,28 @@ public abstract class Shape2D
 
 	public static void main(String[] args)
 	{
-		Shape2D f[]=new Shape2D[10];
+		char art[] = {'k', 'q', 'q', 'q', 'k', 'q', 'k', 'k', 'q', 'q'};
+		double len[] = {3.8, 3.6, 2.5, 1.2, 4.5, 3.7, 4.5, 5.2, 3.8, 1.5};
+		double sumq=0,sumk=0;
+		Shape2D f[]=new Shape2D[art.length];
 		for(int i=0;i<f.length;i++)
 		{
-			f[i]=Math.random()>0.5?new Kreis(Math.random()*10):new Quadrat(Math.random()*10);
+			f[i]=art[i]=='k'?new Kreis(len[i]):new Quadrat(len[i]);
 		}
 		for(Shape2D s:f)
 		{
+			if(s instanceof Kreis)
+			{
+				sumk+=s.flaeche();
+			}
+			else
+			{
+				sumq+=s.umfang();
+			}
 			s.info();
 		}
+		System.out.println("Kreis: "+sumk);
+		System.out.println("Quadrat: "+sumq);
 	}
 }
 
