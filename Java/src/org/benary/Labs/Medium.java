@@ -157,7 +157,7 @@ class Buch extends Medium
 		return seiten;
 	}
 
-	public void setSeiten(int seiten)
+	public final void setSeiten(int seiten)
 	{
 		this.seiten=seiten;
 	}
