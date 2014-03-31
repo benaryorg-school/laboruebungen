@@ -30,7 +30,7 @@ package org.benary.Labs;
 public interface Speaker
 {
 
-	public abstract String speak();
+	public abstract String speak() throws DumbException;
 
 }
 
@@ -42,7 +42,7 @@ class SpeakerClass
 		Speaker arr[]=new Speaker[10];
 		for(int i=0;i<arr.length;i++)
 		{
-			switch((int)(Math.random()-0.01))
+			switch((int)((Math.random()-0.01)*3))
 			{
 				case 0:
 				{
@@ -97,7 +97,7 @@ class Human implements Speaker
 	}
 
 	@Override
-	public String speak()
+	public String speak() throws DumbException
 	{
 		if(this.dumb)
 		{
