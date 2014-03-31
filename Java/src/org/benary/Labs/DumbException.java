@@ -28,7 +28,7 @@ package org.benary.Labs;
  *
  * @author benaryorg
  */
-public class DumbException extends RuntimeException
+public class DumbException extends Exception
 {
 
 	/**
