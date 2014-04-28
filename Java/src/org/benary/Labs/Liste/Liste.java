@@ -120,6 +120,10 @@ public class Liste
 
 	public Knoten getKnotenAnStelle(int index)
 	{
+		if(index<0||index>this.laenge)
+		{
+			throw new ListeOutOfBoundsException("Index \""+index+"\" is out of bounds");
+		}
 		Knoten tmp=this.anfang;
 		while(index-->0)
 		{
@@ -128,9 +132,14 @@ public class Liste
 		return tmp;
 	}
 
-	public Object getDataAnStelle(int index)
+	public Object getDatenAnStelle(int index)
 	{
 		return this.getKnotenAnStelle(index).data;
+	}
+
+	public void setDatenAnStelle(int index,Object data)
+	{
+		this.getKnotenAnStelle(index).data=data;
 	}
 
 	@Override
