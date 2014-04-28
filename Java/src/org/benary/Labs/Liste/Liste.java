@@ -166,7 +166,8 @@ public class Liste
 		lst.fuegeAmAnfangHinzu(1);
 		lst.fuegeAmAnfangHinzu(0);
 		lst.fuegeAmEndeHinzu(3);
-		lst.fuegeMittenDrinnenHinzu(2,2);
+		lst.fuegeMittenDrinnenHinzu(2,5);
+		lst.setDatenAnStelle(2,2);
 		System.out.println(lst);
 	}
 }
