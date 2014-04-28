@@ -133,6 +133,24 @@ public class Liste
 		return this.getKnotenAnStelle(index).data;
 	}
 
+	@Override
+	public String toString()
+	{
+		StringBuilder sb=new StringBuilder("[");
+		Knoten tmp=this.anfang;
+		while(tmp!=null)
+		{
+			sb.append(" ").append(tmp.data).append(" ");
+			tmp=tmp.next;
+			if(tmp!=null)
+			{
+				sb.append(",");
+			}
+		}
+		sb.append("]");
+		return sb.toString();
+	}
+
 	public static void main(String... args)
 	{
 		Liste lst=new Liste();
@@ -140,9 +158,6 @@ public class Liste
 		lst.fuegeAmAnfangHinzu(0);
 		lst.fuegeAmEndeHinzu(3);
 		lst.fuegeMittenDrinnenHinzu(2,2);
-		for(int i=0;i<lst.getLaenge();i++)
-		{
-			System.out.println(lst.getDataAnStelle(i));
-		}
+		System.out.println(lst);
 	}
 }
