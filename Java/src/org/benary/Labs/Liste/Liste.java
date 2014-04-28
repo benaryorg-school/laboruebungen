@@ -142,6 +142,26 @@ public class Liste
 		this.getKnotenAnStelle(index).data=data;
 	}
 
+	public void sauberesEntfernenDesKnotensAnIndexDerListe(int index)
+	{
+		if(index==0)
+		{
+			this.anfang=this.anfang.next;
+		}
+		else
+		{
+			if(index==this.laenge)
+			{
+				this.getKnotenAnStelle(this.laenge-1).next=null;
+			}
+			else
+			{
+				this.getKnotenAnStelle(index-1).next=this.getKnotenAnStelle(index+1);
+			}
+		}
+		this.laenge--;
+	}
+
 	@Override
 	public String toString()
 	{
