@@ -40,8 +40,12 @@ class ChatWidget(QWidget):
         self.setLayout(layout)
 
     def send(self,*largs):
+        if self.args.verbose:
+            print 'ChatWidget: send'
+        
         self.text.append(self.edit.text())
         self.edit.setText('')
+        self.edit.setFocus()
 
     def retranslateUi(self):
         if self.args.verbose:
