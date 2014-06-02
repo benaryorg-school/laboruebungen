@@ -50,3 +50,4 @@ class ChatWidget(QWidget):
     def retranslateUi(self):
         if self.args.verbose:
             print 'ChatWidget: retranslateUi'
+        self.edit.setFocus()
