@@ -26,6 +26,7 @@ class MainWindow(QMainWindow):
         if self.args.verbose:
             print 'MainWindow: initUi'
         self.resize(640,400)
+        self.center()
 
         self.toolbar=self.addToolBar('Exit')
         self.toolbar.setMovable(False)
@@ -39,7 +40,14 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(ChatWidget(self.args))
 
         self.retranslateUi()
-    
+
+    def center(self):
+        if self.args.verbose:
+            print 'MainWindow: center'
+        gm=self.frameGeometry()
+        gm.moveCenter(QApplication.desktop().screenGeometry(QApplication.desktop().screenNumber(QApplication.desktop().cursor().pos())).center())
+        self.move(gm.topLeft())
+
     def retranslateUi(self):
         if self.args.verbose:
             print 'MainWindow: retranslateUi'
