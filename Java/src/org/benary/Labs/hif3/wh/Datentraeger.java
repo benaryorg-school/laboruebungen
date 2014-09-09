@@ -32,38 +32,51 @@ public abstract class Datentraeger
 {
 	private String titel;
 	private double preis;
-	private final int megaByteGroesse;
+	private int megaByteGroesse;
 	private static int gesamtAnzahl=0;
 
-	public Datentraeger(String titel,double preis,int megaByteGroesse)
+	public Datentraeger(String titel,double preis,int megaByteGroesse) throws WertNegativException
 	{
-		this.titel=titel;
-		this.preis=preis;
-		this.megaByteGroesse=megaByteGroesse;
+		this.setTitel(titel);
+		this.setPreis(preis);
+		this.setMegaByteGroesse(megaByteGroesse);
 		Datentraeger.gesamtAnzahl++;
 	}
 
-	public String getTitel()
+	public final String getTitel()
 	{
 		return titel;
 	}
 
-	public void setTitel(String titel)
+	public final void setTitel(String titel)
 	{
 		this.titel=titel;
 	}
 
-	public double getPreis()
+	public final double getPreis()
 	{
 		return preis;
 	}
 
-	public void setPreis(double preis)
+	public final void setPreis(double preis) throws WertNegativException
 	{
+		if(preis<0)
+		{
+			throw new WertNegativException("preis");
+		}
 		this.preis=preis;
 	}
 	
-	public void drop()
+	private final void setMegaByteGroesse(int megaByteGroesse) throws WertNegativException
+	{
+		if(megaByteGroesse<0)
+		{
+			throw new WertNegativException("megaByteGroesse");
+		}
+		this.megaByteGroesse=megaByteGroesse;
+	}
+	
+	public final void drop()
 	{
 		Datentraeger.gesamtAnzahl--;
 	}
