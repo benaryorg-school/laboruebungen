@@ -42,4 +42,10 @@ public class DVD extends Datentraeger
 	{
 		return plusOderMinus;
 	}
+
+	@Override
+	public String toString()
+	{
+		return (new StringBuilder(super.toString()).append(':').append(this.plusOderMinus)).toString();
+	}
 }
