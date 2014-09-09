@@ -85,4 +85,48 @@ public abstract class Datentraeger
 	{
 		Datentraeger.gesamtAnzahl--;
 	}
+
+	public static void main(String... args)
+	{
+		try
+		{
+			Datentraeger cd=new CD("DIIIIIIE CD",-6.66,1,false);
+			System.out.println(cd);
+		}
+		catch(WertNegativException ex)
+		{
+			ex.printStackTrace();
+			System.out.println(ex);
+		}
+		try
+		{
+			Datentraeger dvd=new DVD("DIIIIIIE DVD",-6.66,1,'~');
+			System.out.println(dvd);
+		}
+		catch(WertNegativException ex)
+		{
+			ex.printStackTrace();
+			System.out.println(ex);
+		}
+		try
+		{
+			Datentraeger cd=new CD("DIIIIIIE CD",6.66,1,false);
+			System.out.println(cd);
+		}
+		catch(WertNegativException ex)
+		{
+			ex.printStackTrace();
+			System.out.println(ex);
+		}
+		try
+		{
+			Datentraeger dvd=new DVD("DIIIIIIE DVD",6.66,1,'~');
+			System.out.println(dvd);
+		}
+		catch(WertNegativException ex)
+		{
+			ex.printStackTrace();
+			System.out.println(ex);
+		}
+	}
 }
