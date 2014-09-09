@@ -21,7 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-
 package org.benary.Labs.hif3.wh;
 
 /**
@@ -30,10 +29,16 @@ package org.benary.Labs.hif3.wh;
  */
 public abstract class Datentraeger
 {
+
 	private String titel;
 	private double preis;
 	private int megaByteGroesse;
 	private static int gesamtAnzahl=0;
+
+	public Datentraeger(String titel,double preis) throws WertNegativException
+	{
+		this(titel,preis,700);
+	}
 
 	public Datentraeger(String titel,double preis,int megaByteGroesse) throws WertNegativException
 	{
@@ -66,7 +71,7 @@ public abstract class Datentraeger
 		}
 		this.preis=preis;
 	}
-	
+
 	private final void setMegaByteGroesse(int megaByteGroesse) throws WertNegativException
 	{
 		if(megaByteGroesse<0)
@@ -75,7 +80,7 @@ public abstract class Datentraeger
 		}
 		this.megaByteGroesse=megaByteGroesse;
 	}
-	
+
 	public final void drop()
 	{
 		Datentraeger.gesamtAnzahl--;
