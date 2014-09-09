@@ -26,7 +26,7 @@ package org.benary.Labs.hif3.wh;
 
 /**
  *
- * @author 20120350
+ * @author benaryorg
  */
 public class WertNegativException extends Exception
 {
