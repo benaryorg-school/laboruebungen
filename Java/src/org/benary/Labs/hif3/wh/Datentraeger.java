@@ -85,6 +85,12 @@ public abstract class Datentraeger
 	{
 		Datentraeger.gesamtAnzahl--;
 	}
+	
+	@Override
+	public String toString()
+	{
+		return (new StringBuilder(this.titel).append(':').append(this.preis).append(':').append(this.megaByteGroesse)).toString();
+	}
 
 	public static void main(String... args)
 	{
