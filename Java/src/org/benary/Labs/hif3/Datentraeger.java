@@ -28,7 +28,7 @@ package org.benary.Labs.hif3;
  *
  * @author benaryorg
  */
-public class Datentraeger
+public abstract class Datentraeger
 {
 	private String titel;
 	private double preis;
