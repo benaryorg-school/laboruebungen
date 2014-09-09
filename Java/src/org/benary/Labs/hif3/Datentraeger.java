@@ -26,9 +26,45 @@ package org.benary.Labs.hif3;
 
 /**
  *
- * @author 20120350
+ * @author benaryorg
  */
 public class Datentraeger
 {
+	private String titel;
+	private double preis;
+	private final int megaByteGroesse;
+	private static int gesamtAnzahl=0;
+
+	public Datentraeger(String titel,double preis,int megaByteGroesse)
+	{
+		this.titel=titel;
+		this.preis=preis;
+		this.megaByteGroesse=megaByteGroesse;
+		Datentraeger.gesamtAnzahl++;
+	}
+
+	public String getTitel()
+	{
+		return titel;
+	}
+
+	public void setTitel(String titel)
+	{
+		this.titel=titel;
+	}
+
+	public double getPreis()
+	{
+		return preis;
+	}
+
+	public void setPreis(double preis)
+	{
+		this.preis=preis;
+	}
 	
+	public void drop()
+	{
+		Datentraeger.gesamtAnzahl--;
+	}
 }
