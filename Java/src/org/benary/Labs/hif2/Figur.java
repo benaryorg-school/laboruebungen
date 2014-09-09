@@ -30,7 +30,7 @@ package org.benary.Labs.hif2;
 public abstract class Figur implements Transformable,Scalable
 {
 
-	private Origin origin;
+	protected Origin origin;
 
 	public Figur()
 	{
@@ -48,10 +48,26 @@ public abstract class Figur implements Transformable,Scalable
 	}
 }
 
-class Kreis extends Figur
+class _Kreis extends Figur
 {
-	
-	
+	private double r;
+	@Override
+	public void transform(double a,double b)
+	{
+
+	}
+
+	@Override
+	public void scale(double a)
+	{
+		this.scale(a,a);
+	}
+
+	public void scale(double a,double b)
+	{
+
+	}
+
 	@Override
 	public String toString()
 	{
