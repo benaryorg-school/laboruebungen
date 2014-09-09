@@ -30,13 +30,23 @@ package org.benary.Labs.hif3.wh;
 public class CD extends Datentraeger
 {
 
-	public CD(String titel,double preis) throws WertNegativException
-	{
-		super(titel,preis);
-	}
+	private boolean readOnly;
+	private char plusOderMinus;
 
-	public CD(String titel,double preis,int megaByteGroesse) throws WertNegativException
+	public CD(String titel,double preis,int megaByteGroesse,boolean readOnly,char plusOderMinus) throws WertNegativException
 	{
 		super(titel,preis,megaByteGroesse);
+		this.readOnly=readOnly;
+		this.plusOderMinus=plusOderMinus;
+	}
+
+	public boolean isReadOnly()
+	{
+		return readOnly;
+	}
+
+	public char getPlusOderMinus()
+	{
+		return plusOderMinus;
 	}
 }
