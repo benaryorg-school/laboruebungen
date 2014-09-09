@@ -98,6 +98,7 @@ public abstract class Datentraeger
 		{
 			Datentraeger cd=new CD("DIIIIIIE CD",-6.66,1,false);
 			System.out.println(cd);
+			cd.drop();
 		}
 		catch(WertNegativException ex)
 		{
@@ -108,6 +109,7 @@ public abstract class Datentraeger
 		{
 			Datentraeger dvd=new DVD("DIIIIIIE DVD",-6.66,1,'~');
 			System.out.println(dvd);
+			dvd.drop();
 		}
 		catch(WertNegativException ex)
 		{
@@ -118,6 +120,7 @@ public abstract class Datentraeger
 		{
 			Datentraeger cd=new CD("DIIIIIIE CD",6.66,1,false);
 			System.out.println(cd);
+			cd.drop();
 		}
 		catch(WertNegativException ex)
 		{
@@ -128,6 +131,7 @@ public abstract class Datentraeger
 		{
 			Datentraeger dvd=new DVD("DIIIIIIE DVD",6.66,1,'~');
 			System.out.println(dvd);
+			dvd.drop();
 		}
 		catch(WertNegativException ex)
 		{
