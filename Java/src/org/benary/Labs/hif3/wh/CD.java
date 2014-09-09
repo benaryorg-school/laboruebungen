@@ -21,14 +21,22 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-
 package org.benary.Labs.hif3.wh;
 
 /**
  *
  * @author benaryorg
  */
-public class CD
+public class CD extends Datentraeger
 {
-	
+
+	public CD(String titel,double preis) throws WertNegativException
+	{
+		super(titel,preis);
+	}
+
+	public CD(String titel,double preis,int megaByteGroesse) throws WertNegativException
+	{
+		super(titel,preis,megaByteGroesse);
+	}
 }
