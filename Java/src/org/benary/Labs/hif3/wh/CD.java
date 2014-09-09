@@ -42,5 +42,11 @@ public class CD extends Datentraeger
 	{
 		return readOnly;
 	}
+	
+	@Override
+	public String toString()
+	{
+		return (new StringBuilder(super.toString()).append(':').append(this.readOnly?"true":"false")).toString();
+	}
 
 }
