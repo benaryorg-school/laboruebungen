@@ -21,25 +21,32 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.benary.Labs;
+
+package org.benary.Labs.hif2;
 
 /**
  *
  * @author benaryorg
  */
-public class Knoten
+public class DumbException extends Exception
 {
 
-	public Object data;
-	public Knoten next;
-
-	public Knoten()
+	/**
+	 * Creates a new instance of <code>DumbExceptino</code> without detail
+	 * message.
+	 */
+	public DumbException()
 	{
-		this(null);
 	}
 
-	public Knoten(Object data)
+	/**
+	 * Constructs an instance of <code>DumbExceptino</code> with the specified
+	 * detail message.
+	 *
+	 * @param msg the detail message.
+	 */
+	public DumbException(String msg)
 	{
-		this.data=data;
+		super(msg);
 	}
 }

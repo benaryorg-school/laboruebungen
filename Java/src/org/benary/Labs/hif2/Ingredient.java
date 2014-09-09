@@ -21,111 +21,55 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.benary.Labs;
+package org.benary.Labs.hif2;
 
 /**
  *
  * @author benaryorg
  */
-public interface Speaker
+public class Ingredient
 {
 
-	public abstract String speak() throws DumbException;
+	protected String name;
 
-}
-
-class SpeakerClass
-{
-
-	public static void main(String... args)
+	public Ingredient()
 	{
-		Speaker arr[]=new Speaker[10];
-		for(int i=0;i<arr.length;i++)
-		{
-			switch((int)((Math.random()-0.01)*3))
-			{
-				case 0:
-				{
-					arr[i]=new Human();
-				}
-				break;
-				case 1:
-				{
-					arr[i]=new Dog();
-				}
-				break;
-				case 2:
-				{
-					arr[i]=new Cat();
-				}
-				break;
-			}
-		}
-		int anz=0;
-		for(Speaker s:arr)
-		{
-			if(SpeakerClass.isHuman(s))
-			{
-				anz++;
-			}
-			try
-			{
-				System.out.println(s.speak());
-			}
-			catch(DumbException ex)
-			{
-				System.out.println("Human is dumb!");
-			}
-		}
-		System.out.printf("%02d Humans!\n",anz);
+		this("");
 	}
 
-	public static boolean isHuman(Speaker s)
+	public Ingredient(String name)
 	{
-		return s instanceof Human;
+		this.setName(name);
 	}
-}
 
-class Human implements Speaker
-{
-
-	private final boolean dumb;
-
-	public Human()
+	public String getName()
 	{
-		this.dumb=(Math.random()<=0.1); //10%
+		return name;
+	}
+
+	public final void setName(String name)
+	{
+		this.name=name;
+	}
+
+	public int power()
+	{
+		return this.name.length();
 	}
 
 	@Override
-	public String speak() throws DumbException
+	public String toString()
 	{
-		if(this.dumb)
-		{
-			throw new DumbException();
-		}
-		return "Hallo";
+		return this.name;
 	}
 
-}
-
-class Dog implements Speaker
-{
-
-	@Override
-	public String speak()
+	public static void main(String[] args)
 	{
-		return "Wau Wau";
+		Ingredient i=new Ingredient("Spider");
+		System.out.println(i);
+		System.out.println(i.power());
+		i=new Ingredient("Toad");
+		System.out.println(i);
+		System.out.println(i.power());
 	}
-
-}
-
-class Cat implements Speaker
-{
-
-	@Override
-	public String speak()
-	{
-		return "Meow";
-	}
-
 }

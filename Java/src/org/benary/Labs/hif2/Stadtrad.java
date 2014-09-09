@@ -21,89 +21,70 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.benary.Labs;
+package org.benary.Labs.hif2;
 
 /**
  *
  * @author benaryorg
  */
-public abstract class Figur implements Transformable,Scalable
+public class Stadtrad extends Fahrrad
 {
 
-	private Origin origin;
+	protected boolean licht;
 
-	public Figur()
+	public boolean getLicht()
 	{
-		this(0,0);
+		return licht;
 	}
 
-	public Figur(double x,double y)
+	public final void setLicht(boolean licht)
 	{
-		this(new Origin(x,y));
+		this.licht=licht;
 	}
 
-	public Figur(Origin p)
+	public Stadtrad()
 	{
-		this.origin=(Origin)p.clone();
-	}
-}
-
-class Kreis extends Figur
-{
-	
-	
-	@Override
-	public String toString()
-	{
-		return this.origin+"/"+this.r;
+		this("N.N.");
 	}
 
-}
-
-interface Transformable
-{
-
-	void transform(double x,double y);
-}
-
-interface Scalable
-{
-
-	void scale(double f);
-}
-
-class Origin
-{
-
-	private double x, y;
-
-	public Origin()
+	public Stadtrad(String fahrer)
 	{
-		this(0,0);
+		this(fahrer,"schwarz");
 	}
 
-	public Origin(double x,double y)
+	public Stadtrad(String fahrer,String farbe)
 	{
-		this.x=x;
-		this.y=y;
+		this(fahrer,farbe,false);
 	}
 
-	@Override
-	public Object clone()
+	public Stadtrad(String fahrer,String farbe,boolean licht)
 	{
-		try
-		{
-			return super.clone();
-		}
-		catch(CloneNotSupportedException ex)
-		{
-			return null;
-		}
+		this(fahrer,farbe,licht,0);
+	}
+
+	public Stadtrad(String fahrer,String farbe,boolean licht,double geschwindigkeit)
+	{
+		this(fahrer,farbe,licht,geschwindigkeit,0);
+	}
+
+	public Stadtrad(String fahrer,String farbe,boolean licht,double geschwindigkeit,double richtung)
+	{
+		super(fahrer,farbe,geschwindigkeit,richtung);
+		this.setLicht(licht);
 	}
 
 	@Override
 	public String toString()
 	{
-		return this.x+"/"+this.y;
+		return super.toString()+", Licht "+(this.licht?"an":"aus");
+	}
+
+	public static void main(String args[])
+	{
+		Fahrrad r=new Stadtrad("Thomas","schwarz",false);
+		r.lenken(10);
+		r.beschleunigen(0.3,9.8);
+		((Stadtrad)r).setLicht(true);
+		System.out.println(r);
 	}
 }

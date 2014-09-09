@@ -21,80 +21,89 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.benary.Labs;
+package org.benary.Labs.hif2;
 
 /**
  *
  * @author benaryorg
  */
-public class Auto
+public abstract class Figur implements Transformable,Scalable
 {
 
-	protected String name;
+	private Origin origin;
 
-	public void setName(String name)
+	public Figur()
 	{
-		this.name=name;
+		this(0,0);
 	}
 
-	public void setMotor(boolean motor)
+	public Figur(double x,double y)
 	{
-		this.motor=motor;
+		this(new Origin(x,y));
 	}
 
-	public String getName()
+	public Figur(Origin p)
 	{
-		return name;
+		this.origin=(Origin)p.clone();
+	}
+}
+
+class Kreis extends Figur
+{
+	
+	
+	@Override
+	public String toString()
+	{
+		return this.origin+"/"+this.r;
 	}
 
-	public boolean isMotor()
-	{
-		return motor;
-	}
-	protected boolean motor;
+}
 
-	public Auto()
-	{
-		this("No Name",false);
-	}
+interface Transformable
+{
 
-	public Auto(String name)
-	{
-		this(name,false);
-	}
+	void transform(double x,double y);
+}
 
-	public Auto(String name,boolean motor)
-	{
-		this.name=name;
-		this.motor=motor;
-	}
+interface Scalable
+{
 
-	public void starten()
+	void scale(double f);
+}
+
+class Origin
+{
+
+	private double x, y;
+
+	public Origin()
 	{
-		this.motor=true;
+		this(0,0);
 	}
 
-	public void abstellen()
+	public Origin(double x,double y)
 	{
-		this.motor=false;
+		this.x=x;
+		this.y=y;
+	}
+
+	@Override
+	public Object clone()
+	{
+		try
+		{
+			return super.clone();
+		}
+		catch(CloneNotSupportedException ex)
+		{
+			return null;
+		}
 	}
 
 	@Override
 	public String toString()
 	{
-		return this.name+", Motor an";
-	}
-
-	public static void main(String[] args)
-	{
-		Auto a1=new Auto("BMW");
-		Auto a2=new Auto("Porsche",true);
-
-		System.out.println(a1);
-		a1.starten();
-		System.out.println(a1);
-		System.out.println(a2);
-		a2.abstellen();
-		System.out.println(a2);
+		return this.x+"/"+this.y;
 	}
 }

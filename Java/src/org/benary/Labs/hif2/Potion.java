@@ -21,55 +21,92 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.benary.Labs;
+package org.benary.Labs.hif2;
 
 /**
  *
  * @author benaryorg
  */
-public class Ingredient
+public class Potion
 {
 
-	protected String name;
+	protected Ingredient[] ings=new Ingredient[3];
+	protected int stired=0;
 
-	public Ingredient()
+	public Potion()
 	{
-		this("");
+		this(new Ingredient());
 	}
 
-	public Ingredient(String name)
+	public Potion(Ingredient in1)
 	{
-		this.setName(name);
+		this(in1,new Ingredient());
 	}
 
-	public String getName()
+	public Potion(Ingredient in1,Ingredient in2)
 	{
-		return name;
+		this(in1,in2,new Ingredient());
 	}
 
-	public final void setName(String name)
+	public Potion(Ingredient in1,Ingredient in2,Ingredient in3)
 	{
-		this.name=name;
+		ings[0]=in1;
+		ings[1]=in2;
+		ings[2]=in3;
+	}
+
+	public void setIngs(Ingredient[] ings)
+	{
+		this.ings=ings;
+	}
+
+	public Ingredient[] getIngs()
+	{
+		return ings;
+	}
+
+	public int getStired()
+	{
+		return stired;
+	}
+
+	public void stir()
+	{
+		this.stired++;
+	}
+
+	public boolean ready()
+	{
+		return this.stired>=5;
 	}
 
 	public int power()
 	{
-		return this.name.length();
+		int s=0;
+		for(Ingredient i:this.ings)
+		{
+			s+=i.power();
+		}
+		return this.ready()?s*2:s;
 	}
 
 	@Override
 	public String toString()
 	{
-		return this.name;
+		return String.format("%s, %s, %s, %s, %d, %d",ings[0],ings[1],ings[2],new Boolean(this.ready()).toString(),this.power(),this.getStired());
 	}
 
 	public static void main(String[] args)
 	{
-		Ingredient i=new Ingredient("Spider");
-		System.out.println(i);
-		System.out.println(i.power());
-		i=new Ingredient("Toad");
-		System.out.println(i);
-		System.out.println(i.power());
+		Ingredient in1=new Ingredient("Toad");
+		Ingredient in2=new Ingredient("Spider");
+		Ingredient in3=new Ingredient("Lizard");
+		Potion p=new Potion(in1,in2,in3);
+		System.out.println(p);
+		for(int i=0;i<5;i++)
+		{
+			p.stir();
+			System.out.println(p);
+		}
 	}
 }

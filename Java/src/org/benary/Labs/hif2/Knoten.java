@@ -21,70 +21,25 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.benary.Labs;
+package org.benary.Labs.hif2;
 
 /**
  *
  * @author benaryorg
  */
-public class Stadtrad extends Fahrrad
+public class Knoten
 {
 
-	protected boolean licht;
+	public Object data;
+	public Knoten next;
 
-	public boolean getLicht()
+	public Knoten()
 	{
-		return licht;
+		this(null);
 	}
 
-	public final void setLicht(boolean licht)
+	public Knoten(Object data)
 	{
-		this.licht=licht;
-	}
-
-	public Stadtrad()
-	{
-		this("N.N.");
-	}
-
-	public Stadtrad(String fahrer)
-	{
-		this(fahrer,"schwarz");
-	}
-
-	public Stadtrad(String fahrer,String farbe)
-	{
-		this(fahrer,farbe,false);
-	}
-
-	public Stadtrad(String fahrer,String farbe,boolean licht)
-	{
-		this(fahrer,farbe,licht,0);
-	}
-
-	public Stadtrad(String fahrer,String farbe,boolean licht,double geschwindigkeit)
-	{
-		this(fahrer,farbe,licht,geschwindigkeit,0);
-	}
-
-	public Stadtrad(String fahrer,String farbe,boolean licht,double geschwindigkeit,double richtung)
-	{
-		super(fahrer,farbe,geschwindigkeit,richtung);
-		this.setLicht(licht);
-	}
-
-	@Override
-	public String toString()
-	{
-		return super.toString()+", Licht "+(this.licht?"an":"aus");
-	}
-
-	public static void main(String args[])
-	{
-		Fahrrad r=new Stadtrad("Thomas","schwarz",false);
-		r.lenken(10);
-		r.beschleunigen(0.3,9.8);
-		((Stadtrad)r).setLicht(true);
-		System.out.println(r);
+		this.data=data;
 	}
 }

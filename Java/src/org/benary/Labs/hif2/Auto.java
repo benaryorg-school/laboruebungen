@@ -21,32 +21,80 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-
-package org.benary.Labs;
+package org.benary.Labs.hif2;
 
 /**
  *
  * @author benaryorg
  */
-public class DumbException extends Exception
+public class Auto
 {
 
-	/**
-	 * Creates a new instance of <code>DumbExceptino</code> without detail
-	 * message.
-	 */
-	public DumbException()
+	protected String name;
+
+	public void setName(String name)
 	{
+		this.name=name;
 	}
 
-	/**
-	 * Constructs an instance of <code>DumbExceptino</code> with the specified
-	 * detail message.
-	 *
-	 * @param msg the detail message.
-	 */
-	public DumbException(String msg)
+	public void setMotor(boolean motor)
 	{
-		super(msg);
+		this.motor=motor;
+	}
+
+	public String getName()
+	{
+		return name;
+	}
+
+	public boolean isMotor()
+	{
+		return motor;
+	}
+	protected boolean motor;
+
+	public Auto()
+	{
+		this("No Name",false);
+	}
+
+	public Auto(String name)
+	{
+		this(name,false);
+	}
+
+	public Auto(String name,boolean motor)
+	{
+		this.name=name;
+		this.motor=motor;
+	}
+
+	public void starten()
+	{
+		this.motor=true;
+	}
+
+	public void abstellen()
+	{
+		this.motor=false;
+	}
+
+	@Override
+	public String toString()
+	{
+		return this.name+", Motor an";
+	}
+
+	public static void main(String[] args)
+	{
+		Auto a1=new Auto("BMW");
+		Auto a2=new Auto("Porsche",true);
+
+		System.out.println(a1);
+		a1.starten();
+		System.out.println(a1);
+		System.out.println(a2);
+		a2.abstellen();
+		System.out.println(a2);
 	}
 }

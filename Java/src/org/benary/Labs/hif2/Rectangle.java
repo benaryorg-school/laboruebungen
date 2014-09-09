@@ -21,92 +21,67 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.benary.Labs;
+package org.benary.Labs.hif2;
 
 /**
  *
  * @author benaryorg
  */
-public class Potion
+public class Rectangle
 {
 
-	protected Ingredient[] ings=new Ingredient[3];
-	protected int stired=0;
+	private double width;
+	private double length;
 
-	public Potion()
+	public Rectangle()
 	{
-		this(new Ingredient());
+		this(1,1);
 	}
 
-	public Potion(Ingredient in1)
+	public Rectangle(double width,double length)
 	{
-		this(in1,new Ingredient());
+		this.setWidth(width);
+		this.setLength(length);
 	}
 
-	public Potion(Ingredient in1,Ingredient in2)
+	public static double correct(double s)
 	{
-		this(in1,in2,new Ingredient());
+		return s<1?1:s>20?20:s;
 	}
 
-	public Potion(Ingredient in1,Ingredient in2,Ingredient in3)
+	public double getLength()
 	{
-		ings[0]=in1;
-		ings[1]=in2;
-		ings[2]=in3;
+		return length;
 	}
 
-	public void setIngs(Ingredient[] ings)
+	public final void setLength(double length)
 	{
-		this.ings=ings;
+		this.length=Rectangle.correct(length);
 	}
 
-	public Ingredient[] getIngs()
+	public double getWidth()
 	{
-		return ings;
+		return width;
 	}
 
-	public int getStired()
+	public final void setWidth(double width)
 	{
-		return stired;
+		this.width=Rectangle.correct(width);
 	}
 
-	public void stir()
+	public double umfang()
 	{
-		this.stired++;
+		return (this.length+this.width)*2;
 	}
-
-	public boolean ready()
+	
+	public double flaeche()
 	{
-		return this.stired>=5;
+		return this.length*this.width;
 	}
-
-	public int power()
-	{
-		int s=0;
-		for(Ingredient i:this.ings)
-		{
-			s+=i.power();
-		}
-		return this.ready()?s*2:s;
-	}
-
+	
 	@Override
 	public String toString()
 	{
-		return String.format("%s, %s, %s, %s, %d, %d",ings[0],ings[1],ings[2],new Boolean(this.ready()).toString(),this.power(),this.getStired());
-	}
-
-	public static void main(String[] args)
-	{
-		Ingredient in1=new Ingredient("Toad");
-		Ingredient in2=new Ingredient("Spider");
-		Ingredient in3=new Ingredient("Lizard");
-		Potion p=new Potion(in1,in2,in3);
-		System.out.println(p);
-		for(int i=0;i<5;i++)
-		{
-			p.stir();
-			System.out.println(p);
-		}
+		return this.width+";"+this.length;
 	}
 }
