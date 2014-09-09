@@ -31,13 +31,11 @@ public class CD extends Datentraeger
 {
 
 	private final boolean readOnly;
-	private final char plusOderMinus;
 
 	public CD(String titel,double preis,int megaByteGroesse,boolean readOnly,char plusOderMinus) throws WertNegativException
 	{
 		super(titel,preis,megaByteGroesse);
 		this.readOnly=readOnly;
-		this.plusOderMinus=plusOderMinus;
 	}
 
 	public boolean isReadOnly()
@@ -45,8 +43,4 @@ public class CD extends Datentraeger
 		return readOnly;
 	}
 
-	public char getPlusOderMinus()
-	{
-		return plusOderMinus;
-	}
 }
