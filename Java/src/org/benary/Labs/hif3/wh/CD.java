@@ -32,7 +32,7 @@ public class CD extends Datentraeger
 
 	private final boolean readOnly;
 
-	public CD(String titel,double preis,int megaByteGroesse,boolean readOnly,char plusOderMinus) throws WertNegativException
+	public CD(String titel,double preis,int megaByteGroesse,boolean readOnly) throws WertNegativException
 	{
 		super(titel,preis,megaByteGroesse);
 		this.readOnly=readOnly;
