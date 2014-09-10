@@ -86,7 +86,7 @@ public abstract class Datentraeger
 		return this.megaByteGroesse;
 	}
 
-	public int getGesamtAnzahl()
+	public static int getGesamtAnzahl()
 	{
 		return Datentraeger.gesamtAnzahl;
 	}
