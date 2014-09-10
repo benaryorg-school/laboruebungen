@@ -27,14 +27,14 @@ package org.benary.Labs.hif3.wh;
  *
  * @author benaryorg
  */
-public class DVD extends Datentraeger
+public class DVD extends CD
 {
 
 	private final char plusOderMinus;
 
-	public DVD(String titel,double preis,int megaByteGroesse,char plusOderMinus) throws WertNegativException
+	public DVD(String titel,double preis,int megaByteGroesse,boolean readOnly,char plusOderMinus) throws WertNegativException
 	{
-		super(titel,preis,megaByteGroesse);
+		super(titel,preis,megaByteGroesse,readOnly);
 		this.plusOderMinus=plusOderMinus;
 	}
 

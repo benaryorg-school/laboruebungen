@@ -107,7 +107,7 @@ public abstract class Datentraeger
 		}
 		try
 		{
-			Datentraeger dvd=new DVD("DIIIIIIE DVD",-6.66,1,'~');
+			Datentraeger dvd=new DVD("DIIIIIIE DVD",-6.66,1,false,'~');
 			System.out.println(dvd);
 			dvd.drop();
 		}
@@ -131,7 +131,7 @@ public abstract class Datentraeger
 		}
 		try
 		{
-			Datentraeger dvd=new DVD("DIIIIIIE DVD",6.66,1,'~');
+			Datentraeger dvd=new DVD("DIIIIIIE DVD",6.66,1,false,'~');
 			System.out.println(dvd);
 			dvd.setTitel("Meow");
 			System.out.println(dvd);
