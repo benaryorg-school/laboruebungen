@@ -89,7 +89,7 @@ public abstract class Datentraeger
 	@Override
 	public String toString()
 	{
-		return (new StringBuilder(this.titel).append(':').append(this.preis).append(':').append(this.megaByteGroesse)).toString();
+		return (new StringBuilder(this.getClass().getSimpleName()).append(": ").append(this.titel).append(':').append(this.preis).append(':').append(this.megaByteGroesse)).toString();
 	}
 
 	public static void main(String... args)
