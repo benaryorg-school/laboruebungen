@@ -81,6 +81,16 @@ public abstract class Datentraeger
 		this.megaByteGroesse=megaByteGroesse;
 	}
 
+	public int getMegaByteGroesse()
+	{
+		return this.megaByteGroesse;
+	}
+
+	public int getGesamtAnzahl()
+	{
+		return Datentraeger.gesamtAnzahl;
+	}
+
 	public final void drop()
 	{
 		Datentraeger.gesamtAnzahl--;
@@ -98,7 +108,9 @@ public abstract class Datentraeger
 		{
 			Datentraeger cd=new CD("DIIIIIIE CD",-6.66,1,false);
 			System.out.println(cd);
+			System.out.printf("%d Instanzen\n",Datentraeger.getGesamtAnzahl());
 			cd.drop();
+			System.out.printf("%d Instanzen\n",Datentraeger.getGesamtAnzahl());
 		}
 		catch(WertNegativException ex)
 		{
@@ -109,7 +121,9 @@ public abstract class Datentraeger
 		{
 			Datentraeger dvd=new DVD("DIIIIIIE DVD",-6.66,1,false,'~');
 			System.out.println(dvd);
+			System.out.printf("%d Instanzen\n",Datentraeger.getGesamtAnzahl());
 			dvd.drop();
+			System.out.printf("%d Instanzen\n",Datentraeger.getGesamtAnzahl());
 		}
 		catch(WertNegativException ex)
 		{
@@ -122,7 +136,9 @@ public abstract class Datentraeger
 			System.out.println(cd);
 			cd.setPreis(-1);
 			System.out.println(cd);
+			System.out.printf("%d Instanzen\n",Datentraeger.getGesamtAnzahl());
 			cd.drop();
+			System.out.printf("%d Instanzen\n",Datentraeger.getGesamtAnzahl());
 		}
 		catch(WertNegativException ex)
 		{
@@ -135,7 +151,9 @@ public abstract class Datentraeger
 			System.out.println(dvd);
 			dvd.setTitel("Meow");
 			System.out.println(dvd);
+			System.out.printf("%d Instanzen\n",Datentraeger.getGesamtAnzahl());
 			dvd.drop();
+			System.out.printf("%d Instanzen\n",Datentraeger.getGesamtAnzahl());
 		}
 		catch(WertNegativException ex)
 		{
