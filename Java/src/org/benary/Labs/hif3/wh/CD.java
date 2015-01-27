@@ -42,7 +42,7 @@ public class CD extends Datentraeger
 	{
 		return readOnly;
 	}
-	
+
 	@Override
 	public String toString()
 	{

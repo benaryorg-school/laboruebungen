@@ -38,9 +38,15 @@ public abstract class Shape2D
 
 	public static void main(String[] args)
 	{
-		char art[] = {'k', 'q', 'q', 'q', 'k', 'q', 'k', 'k', 'q', 'q'};
-		double len[] = {3.8, 3.6, 2.5, 1.2, 4.5, 3.7, 4.5, 5.2, 3.8, 1.5};
-		double sumq=0,sumk=0;
+		char art[]=
+		{
+			'k','q','q','q','k','q','k','k','q','q'
+		};
+		double len[]=
+		{
+			3.8,3.6,2.5,1.2,4.5,3.7,4.5,5.2,3.8,1.5
+		};
+		double sumq=0, sumk=0;
 		Shape2D f[]=new Shape2D[art.length];
 		for(int i=0;i<f.length;i++)
 		{

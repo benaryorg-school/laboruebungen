@@ -50,7 +50,9 @@ public abstract class Figur implements Transformable,Scalable
 
 class _Kreis extends Figur
 {
+
 	private double r;
+
 	@Override
 	public void transform(double a,double b)
 	{

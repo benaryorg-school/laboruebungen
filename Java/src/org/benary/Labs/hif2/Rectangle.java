@@ -73,12 +73,12 @@ public class Rectangle
 	{
 		return (this.length+this.width)*2;
 	}
-	
+
 	public double flaeche()
 	{
 		return this.length*this.width;
 	}
-	
+
 	@Override
 	public String toString()
 	{
